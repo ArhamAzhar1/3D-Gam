@@ -27,5 +27,10 @@ public class PlayerMovement : MonoBehaviour
 			// Add a force to the left
 			rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 		}
+
+		if (rb.position.y < -1f)
+		{
+			FindObjectOfType<GameManager>().EndGame();
+		}
 	}
 }
